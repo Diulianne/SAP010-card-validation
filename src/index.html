@@ -6,9 +6,37 @@
     <link rel="stylesheet" href="style.css" />
   </head>
   <body>
-    <header></header>
-    <main></main>
-    <footer></footer>
+    <header>
+      <div class="titulo">Validador de Número de Cartão Crédito</div>
+    </header>
+    <main>
+      <div class="card">
+        <form id="cartao">
+          <div class="identificação">
+            <label>NOME COMPLETO DO TÍTULAR</label><!-- label é importante para os campos de formulários. Ela especifica qual o "rótulo" do input-->
+            <input type="text" class="nomeDocartão" placeholder="Maria de Souza Costa" oninput="validarNome()"><!--placeholder serve para que algo apareça dentro do input. oninpute serve para que eu pegue a informação da função que criei no js-->
+            <label>NÚMERO DO CARTÃO</label>
+            <input type="text" class="numeroDocartão" maxlength="16" onkeypress="if (!isNaN(String.fromCharCode(window.event.keyCode))) return true; else return false;" placeholder="0123456789012345"> <!--Toda vez que uma tecla for presiona dentro do input o evento será ativado, e verificara se a tecla presiona é ou não um número, caso seja letras retornara false, se for número retornará true e irá aparecer no input.-->
+          </div>
+
+          <div class="validade">
+            <label>DATA DE VALIDADE</label>
+            <input type="number" class="dataDia" name="Dia" min="1" max="31" placeholder="31">
+            <input type="number" class="dataMes" name="Mes" min="1" max="12" placeholder="12">
+          </div>
+
+          <div class="codigo">
+            <label>CÓDIGO DE SEGURANÇA</label>
+            <input type="text" class="códigoDeSegurança" maxlength="3" onkeypress="if (!isNaN(String.fromCharCode(window.event.keyCode))) return true; else return false;" placeholder="555">
+          </div>
+        </form>
+      </div>
+    </main>
+    <footer>
+      <div class="botao">
+        <button onclick="validarCartao()">VALIDAR</button>
+      </div>
+    </footer>
     <script src="index.js" type="module"></script>
   </body>
 </html>
