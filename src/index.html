@@ -4,6 +4,8 @@
     <meta charset="utf-8">
     <title>Tarjeta de crédito válida</title>
     <link rel="stylesheet" href="style.css" />
+    
+    <script src="index.js" type="module"></script>
   </head>
   <body>
     <header>
@@ -14,9 +16,9 @@
         <form id="cartao">
           <div class="identificação">
             <label>NOME COMPLETO DO TÍTULAR</label><!-- label é importante para os campos de formulários. Ela especifica qual o "rótulo" do input-->
-            <input type="text" class="nomeDocartão" placeholder="Maria de Souza Costa" oninput="validarNome()"><!--placeholder serve para que algo apareça dentro do input. oninpute serve para que eu pegue a informação da função que criei no js-->
+            <input type="text" class="nomeDocartão" placeholder="Maria de Souza Costa"><!--placeholder serve para que algo apareça dentro do input. oninput serve para que eu pegue a informação da função que criei no js-->
             <label>NÚMERO DO CARTÃO</label>
-            <input type="text" class="numeroDocartão" maxlength="16" onkeypress="if (!isNaN(String.fromCharCode(window.event.keyCode))) return true; else return false;" placeholder="0123456789012345"> <!--Toda vez que uma tecla for presiona dentro do input o evento será ativado, e verificara se a tecla presiona é ou não um número, caso seja letras retornara false, se for número retornará true e irá aparecer no input.-->
+            <input type="text" id="numeroDoCartao" maxlength="16" onkeypress="if (!isNaN(String.fromCharCode(window.event.keyCode))) return true; else return false;" placeholder="0123456789012345"> <!--Toda vez que uma tecla for pressionada dentro do input o evento será ativado, e ira verificar se a tecla presionda é ou não um número, caso seja letras retornará false, se for número retornará true e irá aparecer no input.-->
           </div>
 
           <div class="validade">
@@ -34,9 +36,9 @@
     </main>
     <footer>
       <div class="botao">
-        <button onclick="validarCartao()">VALIDAR</button>
+        -<button submit="submit" onClick="validarCartao()">VALIDAR</button>
+        
       </div>
     </footer>
-    <script src="index.js" type="module"></script>
   </body>
 </html>
