@@ -1,44 +1,90 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <meta charset="utf-8">
+    <meta charset="utf-8" />
     <title>Tarjeta de crédito válida</title>
     <link rel="stylesheet" href="style.css" />
-    
+
     <script src="index.js" type="module"></script>
   </head>
   <body>
-    <header>
-      <div class="titulo">Validador de Número de Cartão Crédito</div>
-    </header>
-    <main>
+    <header></header>
+    <main class="wrapper">
       <div class="card">
-        <form id="cartao">
+        <div class="cardfront">
+          <div class="bandeira">
+            <img src="imgs/visa.png" alt="imagem da bandeira" />
+          </div>
+          <div class="chip">
+            <img src="imgs/chip-tarjeta.png" alt="" />
+          </div>
           <div class="identificação">
-            <label>NOME COMPLETO DO TÍTULAR</label><!-- label é importante para os campos de formulários. Ela especifica qual o "rótulo" do input-->
-            <input type="text" class="nomeDocartão" placeholder="Maria de Souza Costa"><!--placeholder serve para que algo apareça dentro do input. oninput serve para que eu pegue a informação da função que criei no js-->
+            <label>NOME COMPLETO DO TÍTULAR</label
+            ><!-- label é importante para os campos de formulários. Ela especifica qual o "rótulo" do input-->
+            <input
+              type="text"
+              class="nomeDocartao"
+              placeholder="Ex.Maria de Souza Costa"
+              oninput="this.value = this.value.replace(/[^a-zA-Z\s]/g, '').replace(/(\..*?)\..*/g, '$1');"
+            />
+          </div>
+
+          <!--placeholder serve para que algo apareça dentro do input.-->
+          <div class="identificaçaoCardNumb">
             <label>NÚMERO DO CARTÃO</label>
-            <input type="text" id="numeroDoCartao" maxlength="16" onkeypress="if (!isNaN(String.fromCharCode(window.event.keyCode))) return true; else return false;" placeholder="0123456789012345"> <!--Toda vez que uma tecla for pressionada dentro do input o evento será ativado, e ira verificar se a tecla presionda é ou não um número, caso seja letras retornará false, se for número retornará true e irá aparecer no input.-->
+            <input
+              type="text"
+              id="numeroDoCartao"
+              class="cardNumber"
+              maxlength="16"
+              onkeypress="if (!isNaN(String.fromCharCode(window.event.keyCode))) return true; else return false;"
+              placeholder="Ex.0000000000000000"
+            />
+            <!--Toda vez que uma tecla for pressionada dentro do input o evento será ativado, e ira verificar se a tecla precionda é ou não um número, caso seja letras retornará false, se for número retornará true e irá aparecer no input.-->
           </div>
 
           <div class="validade">
             <label>DATA DE VALIDADE</label>
-            <input type="number" class="dataDia" name="Dia" min="1" max="31" placeholder="31">
-            <input type="number" class="dataMes" name="Mes" min="1" max="12" placeholder="12">
-          </div>
+            <input
+              type="number"
+              class="dataDia"
+              name="Dia"
+              min="1"
+              max="31"
+              placeholder="Ex.31"
+            />
 
+            <input
+              type="number"
+              class="dataMes"
+              name="Mes"
+              min="1"
+              max="12"
+              placeholder="Ex.12"
+            />
+          </div>
+        </div>
+        <div class="cardback">
           <div class="codigo">
             <label>CÓDIGO DE SEGURANÇA</label>
-            <input type="text" class="códigoDeSegurança" maxlength="3" onkeypress="if (!isNaN(String.fromCharCode(window.event.keyCode))) return true; else return false;" placeholder="555">
+            <input
+              type="text"
+              class="códigoDeSegurança"
+              maxlength="3"
+              onkeypress="if (!isNaN(String.fromCharCode(window.event.keyCode))) return true; else return false;"
+              placeholder="Ex.555"
+            />
           </div>
-        </form>
+          <div class="msg"><h2 id="mensagem"></h2></div>
+          
+        </div>
+      </div>
+      <div class="botao">
+        <button class="btn" submit="submit" onClick="validarCartao()">
+          VALIDAR
+        </button>
       </div>
     </main>
-    <footer>
-      <div class="botao">
-        -<button submit="submit" onClick="validarCartao()">VALIDAR</button>
-        
-      </div>
-    </footer>
+    <footer></footer>
   </body>
 </html>

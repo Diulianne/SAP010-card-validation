@@ -1,13 +1,8 @@
 const validator = {
-  // eslint-disable-next-line no-unused-vars
   isValid(creditCardNumber) {
-    // Accept only digits, dashes or spaces
     const removeSpace = creditCardNumber.split(" ").join("");
     let doubleNum = false,
       sum = 0;
-
-    if (removeSpace.length < 1) return false;
-
     removeSpace
       .split("")
       .reverse()
@@ -25,7 +20,6 @@ const validator = {
 
     return sum % 10 === 0;
   },
-
 
   maskify(creditCardNumber) {
     const last4Digits = creditCardNumber.slice(-4);
