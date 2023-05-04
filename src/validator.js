@@ -1,6 +1,7 @@
 const validator = {
   isValid(creditCardNumber) {
     const removeSpace = creditCardNumber.split(" ").join("");
+
     let doubleNum = false,
       sum = 0;
     removeSpace
@@ -26,5 +27,4 @@ const validator = {
     return last4Digits.padStart(creditCardNumber.length, "#");
   },
 };
-
 export default validator;
