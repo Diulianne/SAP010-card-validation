@@ -24,27 +24,38 @@ window.validarCartao = function () {
   }
 
   if (nameElement.value.length < 1) {
-    document.getElementById("campnome").innerHTML = "Nome inválido";
+    document.getElementById("campnome").innerHTML = "Preencha um nome válido";
+    nameElement.style.border = "2px solid #e63636"
   } else {
     document.getElementById("campnome").hidden = true;
+    nameElement.style.border = ""
   }
 
   if (numeroCartaoElement.value.length < 1) {
     document.getElementById("cardMsg").innerHTML = "Preencha um número válido";
+    numeroCartaoElement.style.border = "2px solid #e63636"
   } else {
     document.getElementById("cardMsg").hidden = true;
+    numeroCartaoElement.style.border = ""
   }
 
   if (dayElement.value.length < 1 || monthElement.value.length < 1) {
-    document.getElementById("cardDateMsg").innerHTML = "Data inválida";
+    document.getElementById("cardDateMsg").innerHTML = "Preencha uma data válida";
+    dayElement.style.border = "2px solid #e63636"
+    monthElement.style.border = "2px solid #e63636"
   } else {
     document.getElementById("cardDateMsg").hidden = true;
+    dayElement.style.border = ""
+    monthElement.style.border = ""
   }
 
   if (codeElement.value.length < 1) {
-    document.getElementById("cardCodeMsg").innerHTML = "Código inválido";
+    document.getElementById("cardCodeMsg").innerHTML = "Preencha um código válido";
+    codeElement.style.border = "2px solid #e63636"
+
   } else {
     document.getElementById("cardDateMsg").hidden = true;
+    codeElement.style.border = ""
   }
 
 };

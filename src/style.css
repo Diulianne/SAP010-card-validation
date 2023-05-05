@@ -230,5 +230,7 @@ body {
 }
 
 .msg-error {
+  font-size: 12px;;
+  margin: 3px 0 0 1px;
   color: red;
 }
