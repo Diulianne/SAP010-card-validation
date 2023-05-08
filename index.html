@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>Tarjeta de crédito válida</title>
+    <link rel="stylesheet" href="style.css" />
+
+    <script src="index.js" type="module"></script>
+  </head>
+  <body>
+    <header></header>
+    <main class="wrapper">
+      <div class="card">
+        <div class="cardfront">
+          <div class="bandeira">
+            <img src="imgs/visa.png" alt="imagem da bandeira" />
+          </div>
+          <div class="chip">
+            <img src="imgs/chip-tarjeta.png" alt="" />
+          </div>
+          <div class="identificação">
+            <label>NOME COMPLETO DO TÍTULAR</label
+            ><!-- label é importante para os campos de formulários. Ela especifica qual o "rótulo" do input-->
+            <input
+              type="text"
+              id="cardName"
+              class="nomeDocartao"
+              placeholder="Ex.Maria de Souza Costa"
+              oninput="this.value = this.value.replace(/[^a-zA-Z\s]/g, '').replace(/(\..*?)\..*/g, '$1');"
+            />
+            <span class="msg-error" id="campnome"></span>
+          </div>
+
+          <!--placeholder serve para que algo apareça dentro do input.-->
+          <div class="identificaçaoCardNumb">
+            <label>NÚMERO DO CARTÃO</label>
+            <input
+              type="text"
+              id="numeroDoCartao"
+              class="cardNumber"
+              maxlength="16"
+              onkeypress="if (!isNaN(String.fromCharCode(window.event.keyCode))) return true; else return false;"
+              placeholder="Ex.0000000000000000"
+            />
+            <span class="msg-error" id="cardMsg"></span>
+            <!--Toda vez que uma tecla for pressionada dentro do input o evento será ativado, e ira verificar se a tecla precionda é ou não um número, caso seja letras retornará false, se for número retornará true e irá aparecer no input.-->
+          </div>
+
+          <div class="validade">
+            <label>DATA DE VALIDADE</label>
+            <input
+              type="number"
+              class="dataDia"
+              id="day"
+              name="Dia"
+              min="1"
+              max="31"
+              placeholder="Ex.31"
+            />
+              
+            <input
+              type="number"
+              class="dataMes"
+              name="Mes"
+              id="month"
+              min="1"
+              max="12"
+              placeholder="Ex.12"
+            />
+            <span class="msg-error" id="cardDateMsg"></span>
+          </div>
+        </div>
+        <div class="cardback">
+          <div class="codigo">
+            <label>CÓDIGO DE SEGURANÇA</label>
+            <input
+              type="text"
+              class="códigoDeSegurança"
+              id="code"
+              maxlength="3"
+              onkeypress="if (!isNaN(String.fromCharCode(window.event.keyCode))) return true; else return false;"
+              placeholder="Ex.555"
+            />
+            <span class="msg-error" id="cardCodeMsg"></span>
+          </div>
+          <div class="msg"><h2 id="mensagem"></h2></div>
+        </div>
+      </div>
+      <div class="botao">
+        <button class="btn" submit="submit" onClick="validarCartao()">
+          VALIDAR
+        </button>
+      </div>
+    </main>
+    <footer></footer>
+  </body>
+</html>
