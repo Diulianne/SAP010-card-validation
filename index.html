@@ -4,11 +4,8 @@
     <meta charset="utf-8" />
     <title>Tarjeta de crédito válida</title>
     <link rel="stylesheet" href="style.css" />
-
-    <script src="index.js" type="module"></script>
   </head>
   <body>
-    <header></header>
     <main class="wrapper">
       <div class="card">
         <div class="cardfront">
@@ -20,7 +17,7 @@
           </div>
           <div class="identificação">
             <label>NOME COMPLETO DO TÍTULAR</label
-            ><!-- label é importante para os campos de formulários. Ela especifica qual o "rótulo" do input-->
+            ><!--label é importante para os campos de formulários. Ela especifica qual o "rótulo" do input-->
             <input
               type="text"
               id="cardName"
@@ -28,10 +25,12 @@
               placeholder="Ex.Maria de Souza Costa"
               oninput="this.value = this.value.replace(/[^a-zA-Z\s]/g, '').replace(/(\..*?)\..*/g, '$1');"
             />
+            <!--nesse oninput não é possível colocar caracteres especiais-->
             <span class="msg-error" id="campnome"></span>
           </div>
 
-          <!--placeholder serve para que algo apareça dentro do input.-->
+          <!--placeholder serve para que algo apareça dentro do input.
+          id é tipo um rg daquele campo, só pode ter um com aquele mesmo nome-->
           <div class="identificaçaoCardNumb">
             <label>NÚMERO DO CARTÃO</label>
             <input
@@ -39,11 +38,12 @@
               id="numeroDoCartao"
               class="cardNumber"
               maxlength="16"
-              onkeypress="if (!isNaN(String.fromCharCode(window.event.keyCode))) return true; else return false;"
+              onkeypress="if(!isNaN(String.fromCharCode(window.event.keyCode))) return true; else return false;"
               placeholder="Ex.0000000000000000"
             />
             <span class="msg-error" id="cardMsg"></span>
-            <!--Toda vez que uma tecla for pressionada dentro do input o evento será ativado, e ira verificar se a tecla precionda é ou não um número, caso seja letras retornará false, se for número retornará true e irá aparecer no input.-->
+            <!--span serve para aparecer a mensagem caso o campo não seja preenchido-->
+            <!--onkeypress = Toda vez que uma tecla for pressionada dentro do input o evento será ativado, e ira verificar se a tecla precionda é ou não um número, caso seja letras retornará false, se for número retornará true e irá aparecer no input.-->
           </div>
 
           <div class="validade">
@@ -57,7 +57,8 @@
               max="31"
               placeholder="Ex.31"
             />
-              
+            <!--min = valor minimo
+              max = valor maximo-->
             <input
               type="number"
               class="dataMes"
@@ -92,6 +93,6 @@
         </button>
       </div>
     </main>
-    <footer></footer>
+    <script src="index.js" type="module"></script>
   </body>
 </html>

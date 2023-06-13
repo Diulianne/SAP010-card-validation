@@ -40,7 +40,7 @@ body {
 
 .card .cardfront {
   width: 100%;
-  background: url(imgs/bg-tarjeta-03.jpg);
+  background: url(imgs/bg-tarjeta-03.jpg); /*colocar a imagem no fundo do cartão*/
   background-size: cover;
 }
 
@@ -54,7 +54,7 @@ body {
 
 .cardback .codigo > input {
   background: transparent;
-  outline: none;
+  outline: none; /*tira a linha ao redor*/
   display: inline-flex;
   width: 20%;
   height: 100%;

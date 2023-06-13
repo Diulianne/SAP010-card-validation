@@ -10,8 +10,9 @@ window.validarCartao = function () {
   const creditCardNumber = numeroCartaoElement.value.split(" ").join("");
   
   let isValid = false;
+
   if (creditCardNumber.length > 1) {
-    isValid = validator.isValid(numeroCartaoElement.value); //criei uma constante chamanda isValid que pega do validator a função isValid para que verificar se o valor do numeroCartaoElement é verdadeiro ou falso
+    isValid = validator.isValid(numeroCartaoElement.value); //criei uma variavel chamanda isValid que pega do validator a função isValid para que verificar se o valor do numeroCartaoElement é verdadeiro ou falso
   }
   const maskedCreditCardNumber = validator.maskify(numeroCartaoElement.value); //Criei uma constante chamada maskedCreditCardNumber que que pega do validator a função maskify e passa o elemento numeroCartaoElement para ser mascarado
   numeroCartaoElement.value = maskedCreditCardNumber; //aqui é onde o valor do numeroCartaoElement vai ser mascarado
@@ -23,11 +24,12 @@ window.validarCartao = function () {
     document.getElementById("mensagem").innerHTML = "Cartão Inválido";
   }
 
-  if (nameElement.value.length < 1) {
+
+  if (nameElement.value.length < 1) { //se o nome do cartão for menor que 1
     document.getElementById("campnome").innerHTML = "Preencha um nome válido";
     nameElement.style.border = "2px solid #e63636"
-  } else {
-    document.getElementById("campnome").hidden = true;
+  } else { //se o nome do cartão for maior que 1
+    document.getElementById("campnome").hidden = true; //hidden = true para que desapareça a mensagem para preencher o campo
     nameElement.style.border = ""
   }
 
